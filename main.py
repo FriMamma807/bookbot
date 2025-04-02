@@ -1,13 +1,14 @@
 from stats import report
+import sys
 
-def get_book_text(filepath):
-    file_string = ""
-    with open(filepath) as f:
-        file_string = f.read()
-    return file_string
 
 def main():
-    file = get_book_text("books/frankenstein.txt")
-    report(file)
+    file_path= ""
+    if len(sys.argv)!=2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    file_path=sys.argv[1]
+
+    report(file_path)
 
 main()
